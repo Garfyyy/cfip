@@ -1,11 +1,10 @@
 name: cfip
 
-# on:
-#   schedule:
-#     - cron: '*/1 * * * *'
-#     - cron: '* 19 * * *
-    
-on: [push]
+on:
+  schedule:
+    - cron: '00 19,21 * * *'
+
+# on: [push]
 
 env:
   # Setting an environment variable with the value of a configuration variable
