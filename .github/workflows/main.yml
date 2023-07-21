@@ -48,5 +48,5 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add .
-        git diff --exit-code || git commit -m "update result"
+        git diff --exit-code && git commit -m "update result"
         git push origin main
