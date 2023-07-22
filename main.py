@@ -3,6 +3,7 @@ import pandas as pd
 
 DIR_PATH = './cloudflare-better-ip-main/cloudflare/'
 RES_PATH = './result/'
+ONLYIP_PATH = './resip/'
 
 files = [file for file in os.listdir(DIR_PATH) if file.endswith('.txt')]
 
@@ -20,4 +21,6 @@ for region, group in grouped_data:
     group = group.sort_values(by=['Ping'])
     group = group[~(group['Ping'] == 0)]
     group['Ping'] = group['Ping'].astype(str) + 'ms'
+    only_ip1 = group['IP1'].drop_duplicates().apply(lambda x: x.split(':')[0])
     group.to_csv(RES_PATH + region + '.txt', sep='\t', header=None, index=False)
+    only_ip1.to_csv(ONLYIP_PATH + region + '.txt', sep='\t', header=None, index=False)
