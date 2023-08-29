@@ -28,7 +28,7 @@ jobs:
     
     - name: Get source data
       run: |
-        wget $downloadurl
+        wget $downloadurl -O main.zip
         unzip main.zip
         rm main.zip
 
